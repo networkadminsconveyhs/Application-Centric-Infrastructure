@@ -3,16 +3,7 @@
   hosts: all
   connection: local
   gather_facts: False
-  vars_prompt:
-    - name: "tenant"
-      prompt: "What would you like to name your Tenant?"
-      private: no
-      tenant: ansible
-      
-      tasks:
-    - name: ENSURE APPLICATIONS TENANT EXISTS
-      aci_tenant:
-        state: "present"
-        validate_certs: False
-        tenant: "{{ tenant }}"
-        description: "Tenant Created Using Ansible"
+  - name: Query all tenants
+  aci_tenant:
+  state: query
+  register: all_tenants
