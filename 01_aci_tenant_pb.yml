@@ -3,9 +3,17 @@
   hosts: all
   connection: local
   gather_facts: False
-  
- tasks:  
-  - name: Query all tenants
-    aci_tenant:
-    state: query
-    register: all_tenants
+
+task:
+  aci_tenant:
+    tenant: production
+    description: Production tenant
+    state: present
+  delegate_to: localhost
+
+  tasks:
+    - name: ENSURE APPLICATIONS TENANT EXISTS
+      aci_tenant:
+        state: "present"
+        validate_certs: False
+        description: "Tenant Created Using Ansible"
