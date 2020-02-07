@@ -11,9 +11,6 @@
       tasks:
     - name: ENSURE APPLICATIONS TENANT EXISTS
       aci_tenant:
-        host: "{{ ansible_host }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
         state: "present"
         validate_certs: False
         tenant: "{{ tenant }}"
