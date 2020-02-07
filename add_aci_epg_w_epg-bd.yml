@@ -1,0 +1,20 @@
+---
+- aci_epg:
+    host: apic
+    gather_facts: no
+    username: admin
+    password: SomeSecretPassword
+    tenant: production
+    ap: ticketing
+    epg: "{{ item.epg }}"
+    description: Ticketing EPG
+    bd: "{{ item.bd }}"
+    priority: unspecified
+    intra_epg_isolation: unenforced
+    state: present
+  delegate_to: localhost
+  with_items:
+    - epg: web
+      bd: web_bd
+    - epg: database
+      bd: database_bd
