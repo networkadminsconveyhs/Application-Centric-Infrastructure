@@ -6,8 +6,8 @@
 
 task:
   aci_tenant:
-    tenant: production
-    description: Production tenant
+    tenant: ansible
+    description: ansible tenant
     state: present
   delegate_to: localhost
 
