@@ -1,6 +1,6 @@
 ---
-name: Query all EPGs of an App Profile
-    ansible_hosts: all
+-name: Query all EPGs of an App Profile
+    hosts: all
     gather_facts: no
     delegate_to: localhost
 
