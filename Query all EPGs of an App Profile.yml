@@ -2,9 +2,9 @@
 - name: Query all EPGs of an App Profile
   aci_epg:
     hosts: all
-    gather_facts: no
-    validate_certs: no
+    gather_facts: False
+    validate_certs: False
     ap: Save_The_Planet
     state: query
-  delegate_to: localhost
+  connection: local
   register: query_result
