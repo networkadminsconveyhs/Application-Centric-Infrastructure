@@ -2,6 +2,7 @@
 - name: Query all EPGs with a Specific Name
   aci_epg:
     host: apic
+    gather_facts: no
     username: admin
     password: SomeSecretPassword
     validate_certs: no
