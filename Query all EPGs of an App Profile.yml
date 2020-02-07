@@ -3,8 +3,6 @@
   aci_epg:
     hosts: all
     gather_facts: no
-    ansible_username: '{{ ansible_user }}'
-    ansible_password: '{{ ansible_password }}'
     validate_certs: no
     ap: Save_The_Planet
     state: query
