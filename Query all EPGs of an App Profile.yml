@@ -1,0 +1,13 @@
+---
+- name: Query all EPGs of an App Profile
+  aci_epg:
+    host: apic
+    gather_facts: no
+    username: admin
+    password: SomeSecretPassword
+    validate_certs: no
+    ap: ticketing
+    state: query
+  delegate_to: localhost
+  register: query_result
+ 
