@@ -1,4 +1,10 @@
 ---
+name: Query all EPGs of an App Profile
+    hosts: all
+    gather_facts: no
+    delegate_to: localhost
+
+tasks:
 - name: Query all EPGs of an App Profile
   aci_epg:
     hosts: all
