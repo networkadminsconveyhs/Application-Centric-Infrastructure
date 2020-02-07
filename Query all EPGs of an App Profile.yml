@@ -1,13 +1,12 @@
 ---
 - name: Query all EPGs of an App Profile
   aci_epg:
-    host: apic
+    host: '{{ ansible_host }}'
     gather_facts: no
-    username: admin
-    password: SomeSecretPassword
+    username: '{{ ansible_user }}'
+    password: '{{ ansible_password }}'
     validate_certs: no
-    ap: ticketing
+    ap: Save_The_Planet
     state: query
   delegate_to: localhost
   register: query_result
- 
