@@ -1,0 +1,13 @@
+---
+- name: Query an EPG
+  aci_epg:
+    host: apic
+    gather_facts: no
+    username: admin
+    password: SomeSecretPassword
+    tenant: production
+    ap: ticketing
+    epg: web_epg
+    state: query
+  delegate_to: localhost
+  register: query_result
