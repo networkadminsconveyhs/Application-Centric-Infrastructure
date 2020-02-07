@@ -3,7 +3,9 @@
   hosts: all
   connection: local
   gather_facts: False
+  
+ tasks:  
   - name: Query all tenants
-  aci_tenant:
-  state: query
-  register: all_tenants
+    aci_tenant:
+    state: query
+    register: all_tenants
