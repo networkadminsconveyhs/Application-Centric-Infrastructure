@@ -1,7 +1,7 @@
 ---
 - name: Query all EPGs of an App Profile
   aci_epg:
-    ansible_host: sandboxapicdc.cisco.com
+    hosts: all
     gather_facts: no
     ansible_username: '{{ ansible_user }}'
     ansible_password: '{{ ansible_password }}'
