@@ -4,7 +4,7 @@
   connection: local
   gather_facts: False
 
-task:
+tasks:
   aci_tenant:
     tenant: ansible
     description: ansible tenant
