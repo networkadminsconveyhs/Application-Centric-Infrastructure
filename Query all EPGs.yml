@@ -1,0 +1,10 @@
+---
+- name: Query all EPGs
+  aci_epg:
+    host: apic
+    gather_facts: no
+    username: admin
+    password: SomeSecretPassword
+    state: query
+  delegate_to: localhost
+  register: query_result
