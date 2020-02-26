@@ -1,0 +1,21 @@
+---
+- name: ENSURE APPLICATION CONFIGURATION EXISTS
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: TASK 04 - ENSURE APPLICATION EPGS EXISTS
+      aci_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        ap: "{{ ap }}"
+        epg: "{{ item.epg }}"
+        preferred_group: "no"
+        intra_epg_isolation: "unenforced"
+        description: "EPG Created Using Ansible"
+      with_items: "{{ epgs }}
