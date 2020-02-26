@@ -1,0 +1,19 @@
+---
+  tenant: 2at500
+  vrf: "prod_vrf"
+  ap: "intranet"
+  epgs:
+    - epg: "web1"
+    - epg: "web2"
+    - epg: "web3"
+    - epg: "web4"
+    - epg: "web5"
+    - epg: "web6"
+    - epg: "web7"
+    - epg: "sql1"
+    - epg: "sql2"
+    - epg: "sql3"
+    - epg: "sql4" 
+    - epg: "sql5"
+    - epg: "sql6"
+    - epg: "sql7"

@@ -1,0 +1,68 @@
+---
+- name: ENSURE APPLICATION CONFIGURATION EXISTS
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: TASK 01 - ENSURE APPLICATIONS TENANT EXISTS
+      aci_tenant:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        descr: "Tenant Created Using Ansible"
+      tags: tenant, vrf, bd, epg
+
+    - name: TASK 01-1 ENSURE TENANT VRF EXISTS
+      aci_vrf:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        description: "VRF Created Using Ansible"
+
+
+    - name: TASK 02 - ENSURE TENANT VRF EXISTS
+      aci_vrf:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        descr: "VRF Created Using Ansible"
+      tags: vrf, bd
+
+    - name: TASK 03 - ENSURE APPLICATION EXISTS
+      aci_ap:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        ap: "{{ ap }}"
+        descr: "App Profile Created Using Ansible"
+
+    - name: TASK 04 - ENSURE APPLICATION EPGS EXISTS
+      aci_epg:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        ap: "{{ ap }}"
+        epg: "{{ item.epg }}"
+        bd: "prod_bd"
+        preferred_group: "yes"
+        intra_epg_isolation: "enforced"
+        description: "EPG Created Using Ansible"
+      with_items: "{{ epgs }}"
