@@ -1,0 +1,20 @@
+---
+- name: ENSURE TENANT SUBNET EXISTS
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: ENSURE TENANT SUBNET EXISTS
+     aci_bd_subnet:
+       host: "{{ inventory_hostname }}"
+       username: "{{ username }}"
+       password: "{{ password }}"
+       validate_certs: False
+       state: "present"
+       tenant: "{{ tenant }}"
+       bd: "{{ bd | default('test_bd')}}"
+       gateway: "10.100.10.1"
+       mask: 24
+       scope: "public"
+       description: "Subnet Created Using Ansible"
