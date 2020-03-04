@@ -1,0 +1,37 @@
+---
+- name: USE ACI REST MODULE
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: TASK 1 ENSURE uSeg APP1_uSeg IS MODIFY Preferred_Group
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP1_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg","prefGrMemb":"include"},"children":[]}}
+    
+    - name: TASK 2 ENSURE uSeg APP2_uSeg IS MODIFY Preferred_Group
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP2_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP2_uSeg","prefGrMemb":"include"},"children":[]}}
+    
+    - name: TASK 3 ENSURE uSeg APP3_uSeg IS MODIFY Preferred_Group
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP3_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP3_uSeg","prefGrMemb":"include"},"children":[]}}
+...
