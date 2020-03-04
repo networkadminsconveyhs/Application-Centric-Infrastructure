@@ -1,0 +1,37 @@
+---
+- name: USE ACI REST MODULE
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: TASK 1 ENSURE uSeg IS CREATED
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP1_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg","isAttrBasedEPg":"true","name":"APP1_uSeg","prefGrMemb":"include","pcEnfPref":"enforced","prio":"level3","rn":"epg-APP1_uSeg","status":"created"},"children":[{"fvCrtrn":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg/crtrn","name":"default","prec":"0","rn":"crtrn","status":"created,modified"},"children":[]}},{"fvRsCustQosPol":{"attributes":{"tnQosCustomPolName":"default","status":"created,modified"},"children":[]}},{"fvRsBd":{"attributes":{"tnFvBDName":"prod_bd","status":"created,modified"},"children":[]}},{"fvRsAEPgMonPol":{"attributes":{"tnMonEPGPolName":"default","status":"created,modified"},"children":[]}},{"fvRsDomAtt":{"attributes":{"tDn":"uni/vmmp-VMware/dom-TestVMM","resImedcy":"immediate","status":"created"},"children":[]}}]}}
+    
+    - name: TASK 2 ENSURE uSeg IS CREATED
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP2_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP2_uSeg","isAttrBasedEPg":"true","name":"APP2_uSeg","prefGrMemb":"include","pcEnfPref":"enforced","prio":"level3","rn":"epg-APP2_uSeg","status":"created"},"children":[{"fvCrtrn":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP2_uSeg/crtrn","name":"default","prec":"0","rn":"crtrn","status":"created,modified"},"children":[]}},{"fvRsCustQosPol":{"attributes":{"tnQosCustomPolName":"default","status":"created,modified"},"children":[]}},{"fvRsBd":{"attributes":{"tnFvBDName":"prod_bd","status":"created,modified"},"children":[]}},{"fvRsAEPgMonPol":{"attributes":{"tnMonEPGPolName":"default","status":"created,modified"},"children":[]}},{"fvRsDomAtt":{"attributes":{"tDn":"uni/vmmp-VMware/dom-TestVMM","resImedcy":"immediate","status":"created"},"children":[]}}]}}
+    
+    - name: TASK 3 ENSURE uSeg IS CREATED
+      aci_rest:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: False
+        method: "post"
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP3_uSeg.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP3_uSeg","isAttrBasedEPg":"true","name":"APP3_uSeg","prefGrMemb":"include","pcEnfPref":"enforced","prio":"level3","rn":"epg-APP3_uSeg","status":"created"},"children":[{"fvCrtrn":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP3_uSeg/crtrn","name":"default","prec":"0","rn":"crtrn","status":"created,modified"},"children":[]}},{"fvRsCustQosPol":{"attributes":{"tnQosCustomPolName":"default","status":"created,modified"},"children":[]}},{"fvRsBd":{"attributes":{"tnFvBDName":"prod_bd","status":"created,modified"},"children":[]}},{"fvRsAEPgMonPol":{"attributes":{"tnMonEPGPolName":"default","status":"created,modified"},"children":[]}},{"fvRsDomAtt":{"attributes":{"tDn":"uni/vmmp-VMware/dom-TestVMM","resImedcy":"immediate","status":"created"},"children":[]}}]}}
+...
