@@ -3,7 +3,7 @@
   hosts: apic
   connection: local
   gather_facts: False
-
+  
   tasks:
     - name: TASK 1 ENSURE uSeg IS CREATED
       aci_rest:
