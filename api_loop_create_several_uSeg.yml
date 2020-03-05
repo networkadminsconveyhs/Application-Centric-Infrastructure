@@ -12,6 +12,8 @@
         password: "{{ password }}"
         validate_certs: False
         method: "post"
-        path: "api/node/mo/uni/tn-DevOps/ap-intranet/epg-APP1_uSeg.json"
-        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg","isAttrBasedEPg":"true","name":"APP1_uSeg","prefGrMemb":"include","pcEnfPref":"enforced","prio":"level3","rn":"epg-APP1_uSeg","status":"created"},"children":[{"fvCrtrn":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg/crtrn","name":"default","prec":"0","rn":"crtrn","status":"created,modified"},"children":[]}},{"fvRsCustQosPol":{"attributes":{"tnQosCustomPolName":"default","status":"created,modified"},"children":[]}},{"fvRsBd":{"attributes":{"tnFvBDName":"prod_bd","status":"created,modified"},"children":[]}},{"fvRsAEPgMonPol":{"attributes":{"tnMonEPGPolName":"default","status":"created,modified"},"children":[]}},{"fvRsDomAtt":{"attributes":{"tDn":"uni/vmmp-VMware/dom-TestVMM","resImedcy":"immediate","status":"created"},"children":[]}}]}}
-    
+        path: "api/node/mo/uni/tn-DevOps/ap-intranet/{{ item.epg_uSeg }}.json"
+        content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/{{ item.epg_uSeg }}.","isAttrBasedEPg":"true","name":"{{ item.epg_uSeg }}.","prefGrMemb":"include","pcEnfPref":"enforced","prio":"level3","rn":"{{ item.epg_uSeg }}.","status":"created"},"children":[{"fvCrtrn":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/epg-APP1_uSeg/crtrn","name":"default","prec":"0","rn":"crtrn","status":"created,modified"},"children":[]}},{"fvRsCustQosPol":{"attributes":{"tnQosCustomPolName":"default","status":"created,modified"},"children":[]}},{"fvRsBd":{"attributes":{"tnFvBDName":"prod_bd","status":"created,modified"},"children":[]}},{"fvRsAEPgMonPol":{"attributes":{"tnMonEPGPolName":"default","status":"created,modified"},"children":[]}},{"fvRsDomAtt":{"attributes":{"tDn":"uni/vmmp-VMware/dom-TestVMM","resImedcy":"immediate","status":"created"},"children":[]}}]}}
+      
+      with_items: "{{ epg_uSeg }}"
+  
