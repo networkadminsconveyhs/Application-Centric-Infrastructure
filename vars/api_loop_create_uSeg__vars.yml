@@ -1,4 +1,7 @@
 ---
+  tenant: DevOps
+  vrf: "prod_vrf"
+  ap: "intranet"
   
   epg_uSeg:
     - epg-APP1_uSeg
