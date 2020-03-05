@@ -5,7 +5,7 @@
   gather_facts: False
   
   tasks:
-    - name: TASK 1 ENSURE uSeg IS CREATED
+  - name: TASK1 Ensure uSeg IS CREATED
       aci_rest:
         host: "{{ inventory_hostname }}"
         username: "{{ username }}"
