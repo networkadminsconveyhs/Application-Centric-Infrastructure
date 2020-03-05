@@ -15,10 +15,6 @@
         path: "api/node/mo/uni/tn-DevOps/ap-intranet/{{ item }}.json"
         content: {"fvAEPg":{"attributes":{"dn":"uni/tn-DevOps/ap-intranet/{{ item }}","isAttrBasedEPg":"true","prefGrMemb":"exclude"},"children":[]}}
 
-      with_items:
-        - epg-APP1_uSeg
-        - epg-APP2_uSeg
-        - epg-APP3_uSeg
-        - epg-APP4_uSeg
-        - epg-APP5_uSeg
-...
+      with_items: "{{ epg_uSeg }}"
+        
+
